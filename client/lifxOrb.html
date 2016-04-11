@@ -1,0 +1,77 @@
+<template name="pageLayout">
+
+    <navbar class="navbar">
+        <div class="arrange">
+            <div class="arrange-sizeFill arrange--middle">
+                <div class="arrange-sizeFit arrange--middle">
+                    <a class="navbar-bosLogo" href="https://environmentaldashboard.org/">
+                        <img src="env_logo.png">
+                    </a>
+                </div>
+            </div>
+        </div>
+    </navbar>
+
+    <div id="content">
+        <div class="ContainerHeader">
+            <h1 class="page-header">
+                Orb Settings Page
+                <small>
+                    Oberlin College
+                </small>
+            </h1>
+            <hr class="subnav-hr">
+        </div>
+
+        <div class="container">
+            <div class="row">
+                <form class="form-horizontal form-graph" method="POST" action="" id="blockForm" style="">
+                    <fieldset>
+                        <div class="span6">
+                            <!--Buildings Button-->
+                            <div style="display: block;" class="control-group" id="facilityRow">
+                                <label class="control-label" for="id_facility"> Building  </label>
+                                <div class="controls">
+                                    {{> facility}}
+                                </div>
+                            </div>
+                            <!--Water Meter Button-->
+                            <div style="display: block;" class="control-group  " id="waterMetre">
+                                <label class="control-label" for="id_meter"> Water Meter   </label>
+                                <div class="controls">
+                                    {{> meters}}
+                                </div>
+                            </div>
+                            <!--Electricity Meter Button-->
+                            <div style="display: block;" class="control-group   " id="elecMetre">
+                                <label class="control-label" for="id_meter"> Electricity Meter   </label>
+                                <div class="controls">
+                                    {{> meters}}
+                                </div>
+                            </div>
+                        </div>
+                    </fieldset>
+                </form>
+            </div>
+        </div>
+    </div>
+</template>
+
+<template name="facility">
+    <select name="place" id="place">
+        <option value="" selected="selected"></option>
+        {{#each building}}
+            <option value="ale">{{this}}</option>
+        {{/each}}
+    </select>
+</template>
+
+
+<template name="meters">
+    <select id="metre">
+        <option value="" selected="selected"></option>
+        {{#each meter}}
+            <option>{{this}}</option>
+        {{/each}}
+    </select>
+</template>
