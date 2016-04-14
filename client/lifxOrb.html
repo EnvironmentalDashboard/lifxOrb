@@ -1,3 +1,5 @@
+<!--Main page template-->
+
 <template name="pageLayout">
 
     <navbar class="navbar">
@@ -28,25 +30,39 @@
                 <form class="form-horizontal form-graph" method="POST" action="" id="blockForm" style="">
                     <fieldset>
                         <div class="span6">
-                            <!--Buildings Button-->
+                            <!--Selector input-->
+                            <div style="display: block;" class="control-group" id="selectorForm">
+                                <label class="control-label" for="id_facility"> Selector String  </label>
+                                <div class="controls">
+                                    {{> selectorForm}}
+                                </div>
+                            </div>
+                            <!--Buildings Dropdown-->
                             <div style="display: block;" class="control-group" id="facilityRow">
                                 <label class="control-label" for="id_facility"> Building  </label>
                                 <div class="controls">
                                     {{> facility}}
                                 </div>
                             </div>
-                            <!--Water Meter Button-->
+                            <!--Water Meter Dropdown-->
                             <div style="display: block;" class="control-group  " id="waterMetre">
                                 <label class="control-label" for="id_meter"> Water Meter   </label>
                                 <div class="controls">
                                     {{> meters}}
                                 </div>
                             </div>
-                            <!--Electricity Meter Button-->
+                            <!--Electricity Meter Dropdown-->
                             <div style="display: block;" class="control-group   " id="elecMetre">
                                 <label class="control-label" for="id_meter"> Electricity Meter   </label>
                                 <div class="controls">
                                     {{> meters}}
+                                </div>
+                            </div>
+                            <!--Save Button-->
+                            <div style="display: block;" class="control-group   " id="save">
+                                <label class="control-label" for="id_meter">  </label>
+                                <div class="controls">
+                                    {{> save}}
                                 </div>
                             </div>
                         </div>
@@ -55,6 +71,15 @@
             </div>
         </div>
     </div>
+</template>
+
+
+<!--Other templates-->
+
+<template name="selectorForm">
+    <form>
+        <input type="text" name="selector" id="selectorString">
+    </form>
 </template>
 
 <template name="facility">
@@ -68,10 +93,16 @@
 
 
 <template name="meters">
-    <select id="metre">
+    <select class="metre">
         <option value="" selected="selected"></option>
         {{#each meter}}
             <option>{{this}}</option>
         {{/each}}
     </select>
 </template>
+
+<template name="save">
+    <button type="button">Save</button>
+</template>
+
+

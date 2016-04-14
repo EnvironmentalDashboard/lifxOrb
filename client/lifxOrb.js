@@ -10,12 +10,12 @@ Template.facility.helpers({
 
 Template.facility.events({
   'change': function(){
-
     //grabs the meter dropdown
-    var met = $('#metre');
+    var met = $('.metre');
 
     //grabs building value
     var faci = $("#place option:selected").text();
+    Cookie.set('building', faci);
 
     //gets the current index. -1 because of the blank option
     var indx = $("#place").prop("selectedIndex") - 1;
@@ -32,7 +32,6 @@ Template.facility.events({
 
     //populates the new dropdown with filtered meter info
     for( var item in buildings[indx]['meters']) {
-        console.log("testing");
       var op = document.createElement('option');
       op.value = buildings[indx]['meters'][item]['name'];
       op.text = buildings[indx]['meters'][item]['displayName'];
@@ -61,6 +60,13 @@ Template.meters.events({
       var emeter = $("#elecMetre option:selected").attr("value");
       Cookie.set('water', wmeter);
       Cookie.set('electricity', emeter);
+  }
+});
+
+Template.save.events({
+  'click': function() {
+    console.log("test");
+
   }
 });
 

@@ -2,11 +2,6 @@
  * Created by steve on 1/26/16.
  */
 
-//Meteor.startup(function () {
-//    Session.setDefault('water', "oberlin_kahn_res_tot_h2o" );
-//    Session.setDefault('elec', "oberlin_kahn_res_tot_e");
-//});
-
 token = "cbb30e4f1d36b2736c162399d570bb9803b3eb8158d303df5bd00fcfa9ccdee1";
 avgTime = 7;
 
