@@ -70,6 +70,46 @@
                 </form>
             </div>
         </div>
+
+        <div name="idle_state">
+            <!--<div class="transparent"> buildingName <small>pointType</small></div>-->
+            <!--div for water-->
+            <div id="water" class="water-0" style="display: none"><img class="center" src="/waterhd.png" width="320px" height="320px"></div>
+            <!--div for electricity-->
+            <div id=electric class="electric-0"><img class="center" src="/finaliconelec.png" width="320px" height="320px"></div>
+            <script>
+                var clickDELAY = 500, switchDELAY = 20000, clicks = 0, clickTimer = null;
+                idleTimer = startTimer();
+                $(document).click(function(e){
+                    clicks++;  //count clicks
+                    if(clicks === 1) {
+                        clickTimer = setTimeout(function() {
+                            $("div").toggle('slow'); //perform single-click action
+                            clearTimeout(idleTimer);
+                            idleTimer = startTimer();
+                            clicks = 0;              //after action performed, reset counter
+                        }, clickDELAY);
+                    } else {
+                        clearTimeout(clickTimer);    //prevent single-click action
+                        //alert("Double Click");     //perform double-click action (done in router)
+                        clicks = 0;                  //after action performed, reset counter
+                    }
+                });
+                function startTimer() {
+                    var idleTimer = setInterval(function () {
+                        // toggle the class every switchDELAY seconds
+                        if ( $('#water').css('display') == 'none' ){
+                            $('#electric').toggle('slow');
+                            $('#water').toggle('slow');
+                        } else{
+                            $('#water').toggle('slow');
+                            $('#electric').toggle('slow');
+                        }
+                    }, switchDELAY);
+                    return idleTimer
+                }
+            </script>
+        </div>
     </div>
 </template>
 
