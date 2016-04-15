@@ -2,6 +2,7 @@
 
 <template name="pageLayout">
 
+    <!--Bar at the top of the page - scrolls with you-->
     <navbar class="navbar">
         <div class="arrange">
             <div class="arrange-sizeFill arrange--middle">
@@ -14,6 +15,7 @@
         </div>
     </navbar>
 
+    <!--Header-->
     <div id="content">
         <div class="ContainerHeader">
             <h1 class="page-header">
@@ -25,6 +27,7 @@
             <hr class="subnav-hr">
         </div>
 
+        <!--The actual contents of the page-->
         <div class="container">
             <div class="row">
                 <form class="form-horizontal form-graph" method="POST" action="" id="blockForm" style="">
@@ -32,7 +35,7 @@
                         <div class="span6">
                             <!--Selector input-->
                             <div style="display: block;" class="control-group" id="selectorForm">
-                                <label class="control-label" for="id_facility"> Selector String  </label>
+                                <label class="control-label"> Selector String  </label>
                                 <div class="controls">
                                     {{> selectorForm}}
                                 </div>
@@ -60,41 +63,35 @@
                             </div>
                             <!--Save Button-->
                             <div style="display: block;" class="control-group   " id="save">
-                                <label class="control-label" for="id_meter">  </label>
+                                <label class="control-label">  </label>
                                 <div class="controls">
                                     {{> save}}
                                 </div>
                             </div>
+
+                            <!-- List all made orbs-->
+                            <div style="display: block;" class="control-group" id="orbList">
+                                <label class="control-label"> </label>
+                                <div class="controls">
+                                    {{> listOrbs}}
+                                </div>
+                            </div>
+
                         </div>
                     </fieldset>
                 </form>
             </div>
         </div>
 
+        <!--div for orb preview-->
         <div name="idle_state">
-            <!--<div class="transparent"> buildingName <small>pointType</small></div>-->
             <!--div for water-->
-            <div id="water" class="water-0" style="display: none"><img class="center" src="/waterhd.png" width="320px" height="320px"></div>
+            <div id="water" class="water-1" style="display: none"><img class="center" src="/waterhd.png" width="320px" height="320px"></div>
             <!--div for electricity-->
-            <div id=electric class="electric-0"><img class="center" src="/finaliconelec.png" width="320px" height="320px"></div>
+            <div id=electric class="electric-1"><img class="center" src="/finaliconelec.png" width="320px" height="320px"></div>
             <script>
-                var clickDELAY = 500, switchDELAY = 20000, clicks = 0, clickTimer = null;
+               switchDELAY = 20000, clickTimer = null;
                 idleTimer = startTimer();
-                $(document).click(function(e){
-                    clicks++;  //count clicks
-                    if(clicks === 1) {
-                        clickTimer = setTimeout(function() {
-                            $("div").toggle('slow'); //perform single-click action
-                            clearTimeout(idleTimer);
-                            idleTimer = startTimer();
-                            clicks = 0;              //after action performed, reset counter
-                        }, clickDELAY);
-                    } else {
-                        clearTimeout(clickTimer);    //prevent single-click action
-                        //alert("Double Click");     //perform double-click action (done in router)
-                        clicks = 0;                  //after action performed, reset counter
-                    }
-                });
                 function startTimer() {
                     var idleTimer = setInterval(function () {
                         // toggle the class every switchDELAY seconds
@@ -110,18 +107,21 @@
                 }
             </script>
         </div>
+
     </div>
 </template>
 
 
-<!--Other templates-->
+<!------------------Other templates------------------>
 
+<!--Form for selector-->
 <template name="selectorForm">
     <form>
         <input type="text" name="selector" id="selectorString">
     </form>
 </template>
 
+<!--Dropdown for meters-->
 <template name="facility">
     <select name="place" id="place">
         <option value="" selected="selected"></option>
@@ -141,8 +141,20 @@
     </select>
 </template>
 
+
+<!--Buttons-->
 <template name="save">
     <button type="button">Save</button>
 </template>
 
+<template name="remove">
+    <button type="button">Remove</button>
+</template>
 
+<!--Lists orbs currently in database-->
+<template name="listOrbs">
+    <p>Current Orbs.</p>
+    {{#each orbs}}
+       <option> {{selector}}, {{building}}, {{water}}, {{elec}} </option> {{> remove}}
+    {{/each}}
+</template>

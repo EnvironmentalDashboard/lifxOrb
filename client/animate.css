@@ -1,0 +1,289 @@
+@charset "UTF-8";
+/* CSS Document */
+
+#page-header { background: transparent !important; }
+
+.electric-4 {
+  height: 100%;
+  width: 100%;
+  margin: 0 auto;
+  background-color: red;
+  animation-name: electric;
+  animation-duration: 3s;
+  animation-timing-function: ease-out;
+  animation-delay: 0;
+  /*animation-direction: alternate;*/
+  animation-iteration-count: infinite;
+  animation-fill-mode: none;
+  animation-play-state: running;
+  vertical-align: middle;
+}
+
+@keyframes electric {
+  0% { background-color: red;}
+  5% { background-color: darkred;}
+  10% { background-color: red;}
+  15% { background-color: darkred;}
+  40% { background-color: red;}
+  50% { background-color: red;}
+  60% { background-color: red;}
+  70% { background-color: red;}
+  80% { background-color: red;}
+  90% { background-color: red;}
+}
+
+.electric-3 {
+  height: 100%;
+  width: 100%;
+  margin: 0 auto;
+  background-color: #ffa500;
+  animation-name: electric-1;
+  animation-duration: 3s;
+  animation-timing-function: ease-out;
+  animation-delay: 0;
+  /*animation-direction: alternate;*/
+  animation-iteration-count: infinite;
+  animation-fill-mode: none;
+  animation-play-state: running;
+}
+
+@keyframes electric-1 {
+  25% {
+    background-color: #ffa500;
+  }
+  27% {
+    background-color: black;
+  }
+  47% {
+    background-color: #ffa500;
+  }
+  60% {
+    background-color: black;
+  }
+}
+
+.electric-2 {
+  height: 100%;
+  width: 100%;
+  margin: 0 auto;
+  background-color: yellow;
+  animation-name: electric-2;
+  animation-duration: 5s;
+  animation-timing-function: ease-out;
+  animation-delay: 0;
+  /*animation-direction: alternate;*/
+  animation-iteration-count: infinite;
+  animation-fill-mode: none;
+  animation-play-state: running;
+
+}
+
+@keyframes electric-2 {
+  25% {
+    background-color: yellow;
+  }
+  35% {
+    background-color: black;
+  }
+  55% {
+    background-color: yellow;
+  }
+  75% {
+    background-color: black;
+  }
+}
+
+
+.electric-1 {
+  height: 100%;
+  width: 100%;
+  margin: 0 auto;
+  background-color: greenyellow;
+  animation-name: electric-3;
+  animation-duration: 7s;
+  animation-timing-function: ease-out;
+  animation-delay: 0;
+  /*animation-direction: alternate;*/
+  animation-iteration-count: infinite;
+  animation-fill-mode: none;
+  animation-play-state: running;
+}
+
+@keyframes electric-3 {
+  25% {
+    background-color: greenyellow;
+  }
+  27% {
+    background-color: black;
+  }
+  47% {
+    background-color: greenyellow;
+  }
+  60% {
+    background-color: black;
+  }
+}
+
+.electric-0 {
+  height: 100%;
+  width: 100%;
+  margin: 0 auto;
+  background-color: limegreen;
+  animation-name: electric-4;
+  animation-duration: 12s;
+  animation-timing-function: ease-out;
+  animation-delay: 0;
+  /*animation-direction: alternate;*/
+  animation-iteration-count: infinite;
+  animation-fill-mode: none;
+  animation-play-state: running;
+}
+
+@keyframes electric-4 {
+  25% {
+    background-color: limegreen;
+  }
+  27% {
+    background-color: black;
+  }
+  47% {
+    background-color: limegreen;
+  }
+  60% {
+    background-color: black;
+  }
+}
+
+
+
+.water-4 {
+  height: 100%;
+  width: 100%;
+  margin: 0 auto;
+  background-color: red;
+  animation-name: water;
+  animation-duration: 1.5s;
+  animation-timing-function: ease-out;
+  animation-delay: 0;
+  /*animation-direction: alternate;*/
+  animation-iteration-count: infinite;
+  animation-fill-mode: none;
+  animation-play-state: running;
+  vertical-align: middle;
+}
+
+@keyframes water {
+  0% { background-color: red;}
+  45% { background-color: black;}
+  80% { background-color: red;}
+
+}
+
+.water-3 {
+  height: 100%;
+  width: 100%;
+  margin: 0 auto;
+  background-color: #ffa500;
+  animation-name: water-1;
+  animation-duration: 3s;
+  animation-timing-function: ease-out;
+  animation-delay: 0;
+  /*animation-direction: alternate;*/
+  animation-iteration-count: infinite;
+  animation-fill-mode: none;
+  animation-play-state: running;
+}
+
+@keyframes water-1 {
+  0% { background-color: #ffa500;}
+  45% { background-color: black;}
+  80% { background-color: #ffa500;}
+
+}
+
+.water-2 {
+  height: 100%;
+  width: 100%;
+  margin: 0 auto;
+  background-color: yellow;
+  animation-name: water-2;
+  animation-duration: 5s;
+  animation-timing-function: ease-out;
+  animation-delay: 0;
+  /*animation-direction: alternate;*/
+  animation-iteration-count: infinite;
+  animation-fill-mode: none;
+  animation-play-state: running;
+
+}
+
+@keyframes water-2 {
+  0% { background-color: yellow;}
+  45% { background-color: black;}
+  80% { background-color: yellow;}
+
+}
+
+
+.water-1 {
+  height: 100%;
+  width: 100%;
+  margin: 0 auto;
+  background-color: greenyellow;
+  animation-name: water-3;
+  animation-duration: 8s;
+  animation-timing-function: ease-out;
+  animation-delay: 0;
+  /*animation-direction: alternate;*/
+  animation-iteration-count: infinite;
+  animation-fill-mode: none;
+  animation-play-state: running;
+}
+
+@keyframes water-3 {
+  0% { background-color: greenyellow;}
+  45% { background-color: black;}
+  80% { background-color: greenyellow;}
+
+}
+
+.water-0 {
+  height: 100%;
+  width: 100%;
+  margin: 0 auto;
+  background-color: limegreen;
+  animation-name: water-4;
+  animation-duration: 10s;
+  animation-timing-function: ease-out;
+  animation-delay: 0;
+  /*animation-direction: alternate;*/
+  animation-iteration-count: infinite;
+  animation-fill-mode: none;
+  animation-play-state: running;
+}
+
+@keyframes water-4 {
+  0% { background-color: limegreen;}
+  45% { background-color: black;}
+  80% { background-color: limegreen;}
+
+}
+
+
+body,
+html {
+  height: 100%;
+}
+
+body {
+  /*display: flex;*/
+  align-items: center;
+  justify-content: center;
+}
+
+center{align-items:center;}
+img.center {display: block; margin: 0 auto;
+  padding-top: 12%;
+}
+
+.transparent{background: transparent;}

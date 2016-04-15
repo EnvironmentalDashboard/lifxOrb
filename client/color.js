@@ -156,7 +156,6 @@ function findAverageCurrentUsage(numMinutes, data) {
     } else {
         average = 0;
     }
-    //console.log("average", average);
     return average
 }
 

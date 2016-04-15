@@ -64,9 +64,33 @@ Template.meters.events({
 });
 
 Template.save.events({
-  'click': function() {
-    console.log("test");
+  'click': function () {
+    orbData = [Cookie.get('water'),Cookie.get('electricity'), document.getElementById("selectorString").value, Cookie.get('building')];
+    Meteor.call('insertOrb', orbData, function (error) {
+      if (error) {
+        console.log(error);
+      } else {
+      }
+    })
+  }
+});
 
+Template.remove.events({
+  'click': function () {
+    console.log(this);
+    Meteor.call('removeOrb', this, function (error) {
+      if (error) {
+        console.log(error);
+      } else {
+      }
+    })
+  }
+});
+
+Template.listOrbs.helpers({
+  orbs: function() {
+    console.log("helper");
+    return Orbs.find();
   }
 });
 
