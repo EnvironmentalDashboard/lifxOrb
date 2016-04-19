@@ -1,0 +1,19 @@
+/* Transform all of this into SCSS ?*/
+
+/* #orb-square should have an id for sure, so I don't have to use this
+ * syntax to access it lol */
+
+.form-horizontal, #orb-square {
+    float: left;
+}
+
+/* TODO: This styling actually sucks, because we're making option elements
+ * that I have to reach into? They should be spans with a sincle class
+ * that this applies to!   */
+.controls>option {
+    word-break: break-word;
+}
+
+#orb-square {
+    margin-left: 5%;
+}
