@@ -160,11 +160,14 @@
     <h2>Current Orbs.</h2>
     <hr>
     <div class="all-orb-cards">
-        <span id="current-card-placeholder">Your orb preferences will show up here. Try saving some orb settings!</span>
+        <!-- <span id="current&#45;card&#45;placeholder">Your orb preferences will show up here. Try saving some orb settings!</span> -->
         {{#each orbs}}
         <div class="orb-action-card">
             <span class="current-orb-text">
-                {{selector}}, {{building}}, {{water}}, {{elec}}
+                <b>Selector String:</b> {{selector}} <br>
+                <b>Building:</b> {{building}} <br>
+                <b>Water Meter:</b> {{water}} <br>
+                <b>Electricity Meter:</b> {{elec}}
             </span>
             {{> remove}} {{> loadOrb}}
         </div>
