@@ -83,9 +83,9 @@
         <!--div for orb preview-->
         <div name="idle_state" id="orb-square">
             <!--div for water-->
-            <div id="water" class="water-1" style="display: none"><img class="center" src="/waterhd.png" width="320px" height="320px"></div>
+            <div id="water" class="orb-pic-container water-1" style="display: none"><img class="orb-pic" src="/waterhd.png" width="320px" height="320px"></div>
             <!--div for electricity-->
-            <div id=electric class="electric-1"><img class="center" src="/finaliconelec.png" width="320px" height="320px"></div>
+            <div id=electric class="orb-pic-container electric-1"><img class="orb-pic" src="/finaliconelec.png" width="320px" height="320px"></div>
             <script>
                switchDELAY = 20000, clickTimer = null;
                 idleTimer = startTimer();
@@ -144,21 +144,30 @@
 
 <!--Buttons-->
 <template name="save">
-    <button type="button">Save</button>
+    <button type="button" id="button-save">Save</button>
 </template>
 
 <template name="remove">
-    <button type="button">Remove</button>
+    <button type="button" class="button-remove">Remove</button>
 </template>
 
 <template name="loadOrb">
-    <button type="button">Preview</button>
+    <button type="button" class="button-preview">Preview</button>
 </template>
 
 <!--Lists orbs currently in database-->
 <template name="listOrbs">
-    <p>Current Orbs.</p>
-    {{#each orbs}}
-       <span class="current-orb-text"> {{selector}}, {{building}}, {{water}}, {{elec}} </span> {{> remove}} {{> loadOrb}}
-    {{/each}}
+    <h2>Current Orbs.</h2>
+    <hr>
+    <div class="all-orb-cards">
+        <span id="current-card-placeholder">Your orb preferences will show up here. Try saving some orb settings!</span>
+        {{#each orbs}}
+        <div class="orb-action-card">
+            <span class="current-orb-text">
+                {{selector}}, {{building}}, {{water}}, {{elec}}
+            </span>
+            {{> remove}} {{> loadOrb}}
+        </div>
+        {{/each}}
+    </div>
 </template>
