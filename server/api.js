@@ -51,7 +51,6 @@ Meteor.methods({
         for (var d in parameters)
             qs.push(encodeURIComponent(d) + "=" + encodeURIComponent(parameters[d]));
         var url = meter_url + point + '/data?' + qs.join("&");
-        console.log("URL:", url);
 
         //Make the call
         var results = HTTP.get(url,
@@ -82,16 +81,6 @@ Meteor.methods({
         //for testing
         var token =  Meteor.call("getToken");
 
-        //var token;
-        //if(Token.find({}).count() == 0) {
-        //    Meteor.call("getToken");
-        //    token = Token.find('token');
-        //    console.log("help");
-        //} else {
-        //    token = Token.find('token');
-        //    console.log(token);
-        //}
-
         var url = building_url + '?per_page=100';
 
         //Make the call
@@ -109,7 +98,6 @@ Meteor.methods({
             };
             list.push(obj);
         }
-        console.log('Building URL:', url);
         return list;
     }
 });

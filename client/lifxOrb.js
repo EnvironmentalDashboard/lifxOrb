@@ -19,6 +19,7 @@ Template.facility.events({
 
     //gets the current index. -1 because of the blank option
     var indx = $("#place").prop("selectedIndex") - 1;
+    Session.set('curBuilding', indx);
 
     //clears the meter dropdown
     met.html('');
@@ -58,6 +59,18 @@ Template.meters.events({
       var point = $("#metre option:selected").attr("value");
       var wmeter = $("#waterMetre option:selected").attr("value");
       var emeter = $("#elecMetre option:selected").attr("value");
+
+      for(met in Session.get('buildings')[Session.get("curBuilding")]['meters']) {
+        temp = Session.get('buildings')[Session.get("curBuilding")]['meters'][met]['name'];
+        if(temp = wmeter){
+          console.log(temp);
+          Cookie.set('waterName', Session.get('buildings')[Session.get("curBuilding")]['meters'][met]['displayName']);
+        } else if(temp = emeter) {
+          console.log(temp);
+          Cookie.set('electricityName', Session.get('buildings')[Session.get("curBuilding")]['meters'][met]['displayName']);
+        }
+      }
+
       Cookie.set('water', wmeter);
       Cookie.set('electricity', emeter);
   }
@@ -77,7 +90,6 @@ Template.save.events({
 
 Template.remove.events({
   'click': function () {
-    console.log(this);
     Meteor.call('removeOrb', this, function (error) {
       if (error) {
         console.log(error);
@@ -87,9 +99,24 @@ Template.remove.events({
   }
 });
 
+Template.loadOrb.events({
+  'click': function () {
+      Cookie.set('water', this.water);
+      Cookie.set('electricity', this.elec);
+      for(met in Session.get('buildings')[Session.get("curBuilding")]['meters']) {
+        temp = Session.get('buildings')[Session.get("curBuilding")]['meters'][met]['name'];
+        if(temp = wmeter){
+          Cookie.set('waterName', Session.get('buildings')[Session.get("curBuilding")]['meters'][met]['displayName']);
+        }
+        if(temp = emeter) {
+          Cookie.set('electricityName', Session.get('buildings')[Session.get("curBuilding")]['meters'][met]['displayName']);
+        }
+      }
+  }
+});
+
 Template.listOrbs.helpers({
   orbs: function() {
-    console.log("helper");
     return Orbs.find();
   }
 });

@@ -151,10 +151,14 @@
     <button type="button">Remove</button>
 </template>
 
+<template name="loadOrb">
+    <button type="button">Preview</button>
+</template>
+
 <!--Lists orbs currently in database-->
 <template name="listOrbs">
     <p>Current Orbs.</p>
     {{#each orbs}}
-       <option> {{selector}}, {{building}}, {{water}}, {{elec}} </option> {{> remove}}
+       <span class="current-orb-text"> {{selector}}, {{building}}, {{water}}, {{elec}} </span> {{> remove}} {{> loadOrb}}
     {{/each}}
 </template>
