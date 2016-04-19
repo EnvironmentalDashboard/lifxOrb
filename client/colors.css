@@ -1,0 +1,13 @@
+/* When converted to SCSS, move all color information here! */
+
+.button-remove {
+    /* Darken #8dc63f */
+    background-color: #8eaf5a ;
+}
+
+
+/* Why doesn't this work though??? */
+*:active, *:focus {
+    outline-color: #8dc63f;
+    outline-color: #21a7df;
+}
