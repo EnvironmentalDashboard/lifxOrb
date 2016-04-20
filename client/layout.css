@@ -13,25 +13,25 @@
 }
 
 .orb-pic-container {
-    /* transform: scale(0.9); */
     border-radius: 50%;
 }
 
 .orb-pic-container, .orb-pic {
-    height: 250px;
-    width: 250px;
+    height: 3em;
+    width: 3em;
+    display: inline-block;
 }
 
 .orb-pic {
     /* padding-top: 0; */
-    transform: scale(0.85);
+    transform: scale(0.65);
 }
 
 /* ----- Orb list ------- */
 
 .orb-action-card {
     /* TODO: Lighten #8dc63f */
-    background-color: #e2f2c7;
+    background-color: #eaf5f9;
     margin-top: 1em;
     border: 1px solid black;
     padding: 10px;
@@ -43,6 +43,30 @@
     margin-bottom: 2%;
 }
 
+.orb-previews {
+    float: right;
+    margin-top: -15%;
+}
+
+.water {
+    margin-right: 1em;
+}
+
 .button-preview {
     margin-left: 2%;
+}
+
+/* ----- Move Controls to the right hand side lol --- */
+
+#orbList {
+
+    /* Re-architect the page's HTML structure so that you don't need these
+     * floats, if possible! May be impossible because you need block elements
+     * (cards) so they might only be positionable with floats and stuff.
+     */
+
+    float: right;
+    margin-right: 8em;
+    max-width: 40%;
+    min-width: 40%;
 }
