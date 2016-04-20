@@ -1,5 +1,6 @@
 /**
  * Created by steve on 1/15/16.
+ * Methods we can call from anywhere to make api calls
  */
 
 //what you know about security lol
@@ -12,8 +13,6 @@ meter_url = 'https://api.buildingos.com/meters/';
 token_url = 'https://api.buildingos.com/o/token/';
 refresh_url = 'https://api.buildingos.com/o/refresh/';
 building_url = 'https://api.buildingos.com/buildings/';
-
-Token = new Mongo.Collection('token');
 
 Meteor.methods({
     getToken: function () {

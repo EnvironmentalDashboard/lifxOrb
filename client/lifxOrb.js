@@ -1,3 +1,5 @@
+
+// Fills the building dropdown
 Template.facility.helpers({
   'building': function(){
     var list = [];
@@ -8,6 +10,7 @@ Template.facility.helpers({
   }
 });
 
+// Filters the meters by building
 Template.facility.events({
   'change': function(){
     //grabs the meter dropdown
@@ -41,6 +44,7 @@ Template.facility.events({
   }
 });
 
+// Displays the meters by displayName in the dropdown
 Template.meters.helpers({
   'meter': function(){
     var list = [];
@@ -53,6 +57,7 @@ Template.meters.helpers({
   }
 });
 
+// When a user picks a meter from the dropdown.
 Template.meters.events({
   'change': function(){
       var indx = $("#place").prop("selectedIndex") - 1;
@@ -76,6 +81,7 @@ Template.meters.events({
   }
 });
 
+// Saves current selection to mongo
 Template.save.events({
   'click': function () {
     orbData = [Cookie.get('water'),Cookie.get('electricity'), document.getElementById("selectorString").value, Cookie.get('building')];
@@ -88,6 +94,7 @@ Template.save.events({
   }
 });
 
+// Removes an orb from mongo
 Template.remove.events({
   'click': function () {
     Meteor.call('removeOrb', this, function (error) {
@@ -96,6 +103,13 @@ Template.remove.events({
       } else {
       }
     })
+  }
+});
+
+// Returns list of orbs from mongo
+Template.listOrbs.helpers({
+  orbs: function() {
+    return Orbs.find();
   }
 });
 
@@ -115,9 +129,5 @@ Template.loadOrb.events({
   }
 });
 
-Template.listOrbs.helpers({
-  orbs: function() {
-    return Orbs.find();
-  }
-});
+
 

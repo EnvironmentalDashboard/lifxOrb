@@ -17,8 +17,8 @@ setInterval(function() {
     water = Cookie.get("water");
     elec = Cookie.get("electricity");
 
-    main(water, elec);
-}, 30 * 1000);
+    //main(water, elec);
+}, 10 * 1000);
 
 function main(water, elec){
 
@@ -26,6 +26,7 @@ function main(water, elec){
         if (error) {
             console.log(error);
         } else {
+          //  console.log("water");
             Meteor.call('makeCall', thenISO, nowISO, water, 'hour', function(error, secondResults) {
                 if (error){
                     console.log(error);
@@ -42,6 +43,7 @@ function main(water, elec){
         if (error) {
             console.log(error);
         } else {
+       //     console.log("elec");
             Meteor.call('makeCall', thenISO, nowISO, elec, 'hour', function(error, secondResults) {
                 if (error){
                     console.log(error);
@@ -55,21 +57,30 @@ function main(water, elec){
     });
 }
 
-function setColor(current, typical, elec){
+function setColor(current, typical, isElec){
     var relative = current/typical;
+
+    var color;
+    var colorWater;
+    var elec  = document.getElementById("electric");
+    var water = document.getElementById("water");
 
     headers = {
         "Authorization": "Bearer %s" % token
     };
 
     if(relative <= .5){
-        if(elec == true) {
+        if(isElec == true) {
+            color = 0;
+            elec.className = "electric-"+color;
             data = {
                 "period": 1,
                 "cycles": 100,
                 "color": "green"
             }
         } else{
+            colorWater = 0;
+            water.className = "water-"+colorWater;
             data = {
                 "period": 1,
                 "cycles": 100,
@@ -78,13 +89,17 @@ function setColor(current, typical, elec){
         }
     }
     if(relative > .5 && relative < .8){
-        if(elec == true) {
+        if(isElec == true) {
+            color = 1;
+            elec.className = "electric-"+color;
             data = {
                 "period": 1,
                 "cycles": 100,
                 "color": "#adff2f"
             }
         } else{
+            colorWater = 1;
+            water.className = "water-"+colorWater;
             data = {
                 "period": 1,
                 "cycles": 100,
@@ -93,13 +108,17 @@ function setColor(current, typical, elec){
         }
     }
     if(relative >= .8 && relative <= 1.2){
-        if(elec == true) {
+        if(isElec == true) {
+            color = 2;
+            elec.className = "electric-"+color;
             data = {
                 "period": 1,
                 "cycles": 100,
                 "color": "yellow"
             }
         } else{
+            colorWater = 2;
+            water.className = "water-"+colorWater;
             data = {
                 "period": 1,
                 "cycles": 100,
@@ -108,13 +127,17 @@ function setColor(current, typical, elec){
         }
     }
     if(relative > 1.2 && relative < 1.5){
-        if(elec == true) {
+        if(isElec == true) {
+            color = 3;
+            elec.className = "electric-"+color;
             data = {
                 "period": 1,
                 "cycles": 100,
                 "color": "orange"
             }
         } else{
+            colorWater = 3;
+            water.className = "water-"+colorWater;
             data = {
                 "period": 1,
                 "cycles": 100,
@@ -123,13 +146,17 @@ function setColor(current, typical, elec){
         }
     }
     if(relative >= 1.5){
-        if(elec == true) {
+        if(isElec == true) {
+            color = 4;
+            elec.className = "electric-"+color;
             data = {
                 "period": 1,
                 "cycles": 100,
                 "color": "red"
             }
         } else{
+            colorWater = 4;
+            water.className = "water-"+colorWater;
             data = {
                 "period": 1,
                 "cycles": 100,
@@ -137,7 +164,45 @@ function setColor(current, typical, elec){
             }
         }
     }
-    HTTP.post('https://api.lifx.com/v1/lights/all/effects/breathe',data,function(){});
+  //  console.log(color + " " + colorWater);
+
+    url =  'https://api.lifx.com/v1/lights/d073d51241d2/effects/pulse';
+    var results = HTTP.post(url,
+        {headers:{
+            'Content-Type': 'application/json',
+            'Authorization' : 'Bearer ' + token}
+        ,
+        data:{
+            'period': 1,
+            'cycles': 100,
+            'color': 'red'}
+        }
+    );
+    console.log(results);
+    //HTTP.call( 'POST', 'https://api.lifx.com/v1/lights/d073d51241d2/effects/pulse', {
+    //    data: {
+    //        color: data["color"],
+    //        cycles: data["cycles"],
+    //        period: data["period"]
+    //    },
+    //    headers: {
+    //        "Authorization": "Bearer %s" % token
+    //    }
+    //}, function( error, response ) {
+    //    if ( error ) {
+    //        console.log( error );
+    //    } else {
+    //        console.log( response );
+    //    }
+    //});
+
+      //HTTP.post('https://api.lifx.com/v1/lights/d073d51241d2/effects/breathe',data,headers,function(error, response){
+      //    if ( error ) {
+      //    console.log( error );
+      //} else {
+      //    console.log( response );
+      //}});
+
 }
 
 function findAverageCurrentUsage(numMinutes, data) {
