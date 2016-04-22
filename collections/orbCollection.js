@@ -1,7 +1,7 @@
 /**
  * Created by stevemeyer on 4/15/16.
  */
-Orbs = new Mongo.Collection( 'orbs' );
+Orbs = new Mongo.Collection( 'lifx_orbs' );
 
 Orbs.allow({
     insert: function() { return false; },

@@ -68,42 +68,42 @@
                                     {{> save}}
                                 </div>
                             </div>
-
-                            <!-- List all made orbs-->
-                            <div style="display: block;" class="control-group" id="orbList">
-                                <label class="control-label"> </label>
-                                <div class="controls">
-                                    {{> listOrbs}}
-                                </div>
-                            </div>
-
                         </div>
                     </fieldset>
                 </form>
-        <!--div for orb preview-->
-        <div name="idle_state" id="orb-square">
-            <!--div for water-->
-            <div id="water" class="orb-pic-container water-2" style="display: none"><img class="orb-pic" src="/waterhd.png" width="320px" height="320px"></div>
-            <!--div for electricity-->
-            <div id=electric class="orb-pic-container electric-2"><img class="orb-pic" src="/finaliconelec.png" width="320px" height="320px"></div>
-            <script>
-               switchDELAY = 20000, clickTimer = null;
-                idleTimer = startTimer();
-                function startTimer() {
-                    var idleTimer = setInterval(function () {
-                        // toggle the class every switchDELAY seconds
-                        if ( $('#water').css('display') == 'none' ){
-                            $('#electric').toggle('slow');
-                            $('#water').toggle('slow');
-                        } else{
-                            $('#water').toggle('slow');
-                            $('#electric').toggle('slow');
-                        }
-                    }, switchDELAY);
-                    return idleTimer
-                }
-            </script>
-        </div>
+
+                <!-- List all made orbs-->
+                <div style="display: block;" class="control-group" id="orbList">
+                    <label class="control-label"> </label>
+                    <div class="controls">
+                        {{> listOrbs}}
+                    </div>
+                </div>
+
+                <!--div for orb preview-->
+                <div name="idle_state" id="orb-square">
+                    <!-- <!&#45;&#45;div for water&#45;&#45;> -->
+                    <!-- <div id="water" class="orb&#45;pic&#45;container water&#45;1" style="display: none"><img class="orb&#45;pic" src="/waterhd.png" width="320px" height="320px"></div> -->
+                    <!-- <!&#45;&#45;div for electricity&#45;&#45;> -->
+                    <!-- <div id=electric class="orb&#45;pic&#45;container electric&#45;1"><img class="orb&#45;pic" src="/finaliconelec.png" width="320px" height="320px"></div> -->
+                    <!-- <script> -->
+                    <!--    switchDELAY = 20000, clickTimer = null; -->
+                    <!--     idleTimer = startTimer(); -->
+                    <!--     function startTimer() { -->
+                    <!--         var idleTimer = setInterval(function () { -->
+                    <!--             // toggle the class every switchDELAY seconds -->
+                    <!--             if ( $('#water').css('display') == 'none' ){ -->
+                    <!--                 $('#electric').toggle('slow'); -->
+                    <!--                 $('#water').toggle('slow'); -->
+                    <!--             } else{ -->
+                    <!--                 $('#water').toggle('slow'); -->
+                    <!--                 $('#electric').toggle('slow'); -->
+                    <!--             } -->
+                    <!--         }, switchDELAY); -->
+                    <!--         return idleTimer -->
+                    <!--     } -->
+                    <!-- </script> -->
+                </div>
             </div>
         </div>
 
@@ -162,15 +162,23 @@
     <div class="all-orb-cards">
         <!-- <span id="current&#45;card&#45;placeholder">Your orb preferences will show up here. Try saving some orb settings!</span> -->
         {{#each orbs}}
-        <div class="orb-action-card">
+            <div class="orb-action-card">
             <span class="current-orb-text">
                 <b>Selector String:</b> {{selector}} <br>
                 <b>Building:</b> {{building}} <br>
                 <b>Water Meter:</b> {{water}} <br>
                 <b>Electricity Meter:</b> {{elec}}
             </span>
-            {{> remove}} {{> loadOrb}}
-        </div>
+                <div class="orb-previews">
+                    <!--div for water-->
+                    <div class="orb-pic-container water water-0" id="waterPrev"><img class="orb-pic" src="/waterhd.png" width="320px" height="320px"></div>
+                    <!--div for electricity-->
+                    <div class="orb-pic-container electricity electric-0" id="elecPrev" ><img class="orb-pic" src="/finaliconelec.png" width="320px" height="320px"></div>
+                </div>
+
+                {{> remove}}
+                <!-- {{> loadOrb}} -->
+            </div>
         {{/each}}
     </div>
 </template>
