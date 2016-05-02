@@ -16,43 +16,30 @@ setInterval(function() {
     //Mmmm cookies
     water = Cookie.get("water");
     elec = Cookie.get("electricity");
+    meter = Cookie.get("meter");
 
     main(water, elec);
 }, 30 * 1000);
 
-function main(water, elec){
+function main(meter){
 
-    Meteor.call('makeCall', 0, 0, water, 'live', function(error, results) {
+    Meteor.call('makeCall', 0, 0, meter, 'live', function(error, results) {
         if (error) {
             console.log(error);
         } else {
-            Meteor.call('makeCall', thenISO, nowISO, water, 'hour', function(error, secondResults) {
+            Meteor.call('makeCall', thenISO, nowISO, meter, 'hour', function(error, secondResults) {
                 if (error){
                     console.log(error);
                 } else{
                     var current  = findAverageCurrentUsage(5,results);
                     var typical = typicalUsage(secondResults);
-                    setColor(current,typical,false);
+                    //setColor(current,typical,false);
                 }
             });
         }
     });
 
-    Meteor.call('makeCall', 0, 0, elec, 'live', function(error, results) {
-        if (error) {
-            console.log(error);
-        } else {
-            Meteor.call('makeCall', thenISO, nowISO, elec, 'hour', function(error, secondResults) {
-                if (error){
-                    console.log(error);
-                } else{
-                    var current  = findAverageCurrentUsage(5,results);
-                    var typical = typicalUsage(secondResults);
-                    setColor(current,typical,true);
-                }
-            });
-        }
-    });
+
 }
 
 function setColor(current, typical, elec){

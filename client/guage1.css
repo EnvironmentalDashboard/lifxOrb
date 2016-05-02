@@ -1,0 +1,144 @@
+
+.building {
+    color: #fff;
+    background-color: #B94A48;}
+
+.box,
+.box-odometer {
+    background-color: #B94A48;
+}
+
+.guage-container{
+    background: #B94A48;
+    width: auto;
+}
+
+/*#content {*/
+    /*background-color: #B94A48;*/
+/*}*/
+
+.box-intensity {
+    border-radius: 0px 0px 5px 5px;
+    color: #fff;
+    font-size: 14px;
+    font-weight: 500;
+    margin: 0 auto;
+    padding-bottom: 10px;
+    vertical-align: middle;
+    width: 100%; }
+@media (max-width: 500px) {
+    .box-intensity {
+        font-size: 12px; } }
+@media (max-width: 300px) {
+    .box-intensity {
+        font-size: 9px; } }
+
+.box-intensity label {
+    padding-top: 20px; }
+
+.box-intensity input {
+    vertical-align: middle;
+    width: 80%; }
+
+.icon {
+    filter: alpha(opacity=50);
+    height: 80px;
+    margin: 0 auto;
+    opacity: .5; }
+@media (max-width: 500px) {
+    .icon {
+        height: 36px; } }
+
+.icon-container {
+    padding-top: 12px; }
+
+input[type=range] {
+    -webkit-appearance: none;
+    background: transparent;
+    height: 4px; }
+
+input[type=range]::-ms-track {
+    background: transparent;
+    border-color: transparent;
+    border-width: 0px 0;
+    color: transparent; }
+
+input[type=range]::-ms-fill-lower {
+    background: rgba(0, 0, 0, 0.5);
+    border-radius: 10px; }
+
+input[type=range]::-ms-fill-upper {
+    background: rgba(0, 0, 0, 0.5);
+    border-radius: 10px; }
+
+input[type=range]::-webkit-slider-runnable-track {
+    background: rgba(255, 255, 255, 0.3);
+    border-radius: 2px;
+    height: 4px; }
+
+input[type=range]::-moz-range-track {
+    background: rgba(255, 255, 255, 0.3);
+    border: none;
+    border-radius: 2px;
+    height: 4px; }
+
+input[type=range]::-webkit-slider-thumb {
+    -webkit-appearance: none;
+    background: #fff;
+    border: none;
+    border-radius: 50%;
+    height: 16px;
+    margin-top: -6px;
+    width: 16px; }
+
+input[type=range]::-moz-range-thumb {
+    background: #fff;
+    border: none;
+    border-radius: 50%;
+    height: 16px;
+    margin-top: -6px;
+    width: 16px; }
+
+input[type=range]::-ms-thumb {
+    background: rgba(0, 0, 0, 0.5);
+    background-clip: padding-box;
+    border: none;
+    border-radius: 2px;
+    height: 4px; }
+
+.meter-photo {
+    background-position: center center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    border: 5px solid #fff;
+    border-radius: 50%;
+    display: inline-block;
+    height: 80px;
+    margin-left: 0 auto;
+    width: 80px; }
+
+.odometer {
+    color: #fff;
+    font-size: 80px;
+    font-weight: 400;
+    line-height: 1.1; }
+@media (max-width: 500px) {
+    .odometer {
+        font-size: 32px; } }
+@media (max-width: 700px) {
+    .odometer {
+        font-size: 48px; } }
+
+.odometer-label {
+    opacity: 0.8;
+    color: #fff;
+    font-size: 16px;
+    font-weight: 300;
+    padding-bottom: 20px; }
+
+@media (max-width: 500px) {
+    .odometer-large {
+        font-size: 70px;
+        margin-top: -5px; } }
+
+

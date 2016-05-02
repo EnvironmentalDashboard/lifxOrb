@@ -12,3 +12,10 @@ Router.route('/settings', function(){
     });
     this.render('pageLayout');
 });
+Router.route('/savedBlocks', function(){
+    this.render('listOrbs');
+});
+
+Router.route('/guage1', function(){
+   this.render('guage1')
+});

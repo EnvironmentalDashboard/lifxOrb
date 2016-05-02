@@ -1,0 +1,103 @@
+
+<template name="guage1">
+    <div class="no-js oneColumn red">
+    <!--[if lt IE 7]>
+    <p class="chromeframe">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> or <a href="http://www.google.com/chromeframe/?redirect=true">activate Google Chrome Frame</a> to improve your experience.</p>
+    <![endif]-->
+    <div class="container guage-container">
+
+
+
+        <div class="main-container">
+            <div class="main wrapper clearfix">
+                <div class="box">
+                    <div class="icon-container">
+                    </div>
+                    <div class="building blockTitle">
+                        Allencroft Electricity Usage
+                    </div>
+
+                </div>
+
+                <div class="box-odometer" style="">
+                    <div class="odometer odometer-auto-theme" id="odometer"></div> <!--<div class="odometer-inside"><span class="odometer-digit"><span class="odometer-digit-spacer">8</span><span class="odometer-digit-inner"><span class="odometer-ribbon"><span class="odometer-ribbon-inner"><span class="odometer-value">2</span></span></span></span></span><span class="odometer-digit"><span class="odometer-digit-spacer">8</span><span class="odometer-digit-inner"><span class="odometer-ribbon"><span class="odometer-ribbon-inner"><span class="odometer-value">2</span></span></span></span></span><span class="odometer-formatting-mark odometer-radix-mark">.</span><span class="odometer-digit"><span class="odometer-digit-spacer">8</span><span class="odometer-digit-inner"><span class="odometer-ribbon"><span class="odometer-ribbon-inner"><span class="odometer-value">8</span></span></span></span></span></div></div>-->
+                    <div class="odometer-label">
+                        kilowatts per person right now
+                    </div>
+                </div>
+
+
+                <div class="box-intensity">
+                    <!--<label for="range">LOW</label>-->
+                    <input id="range" type="range" min="0" max="100" value="50" disabled="true">
+                    <!--<label for="range">HIGH</label>-->
+                </div>
+
+
+            </div>
+
+        </div>
+
+    </div>
+
+    </div>
+
+</template>
+
+<template name="guageLayout">
+
+
+</template>
+
+<!-- scripts and shit:
+<script src="/js/min/www/lib/jquery.1.8.2.min.js?v=e176004e48f2bc288618f9005736e032"></script>
+
+    <script src="/js/min/www/lib/bootstrap.2.0.4.min.js?v=e176004e48f2bc288618f9005736e032"></script>
+
+    <script src="/js/min/www/lib/select2-3.4.6/select2.min.js?v=e176004e48f2bc288618f9005736e032"></script>
+
+    <script src="/js/min/www/lib/localtime.js?v=e176004e48f2bc288618f9005736e032"></script>
+
+
+
+    <script src="/js/min/www/lib/odometer.min.js?v=e176004e48f2bc288618f9005736e032"></script>
+    <script>
+        var format = '(,ddd)';
+        var decimalPlaces = 1;
+        if (decimalPlaces) {
+            format += '.';
+            var counter = 0;
+            while (counter < decimalPlaces) {
+                counter++;
+                format += 'd';
+            }
+        }
+        var $odometer = $('#odometer');
+        new Odometer({
+            el: $odometer[0],
+            format: format
+        });
+        $odometer.text(22.754);
+    </script>
+
+
+
+    <script src="/js/min/www/utils/iframe-resize.js?v=e176004e48f2bc288618f9005736e032"></script>
+    <script>
+        setTimeout(resizeIframe, 200);
+    </script>
+
+
+    <script>
+        var fiveMinutes = setInterval(function() {
+            document.location.reload();
+        }, 300000);
+
+        try {
+            var frameElement = $(window.frameElement);
+            if (frameElement && $(frameElement).attr('id') === 'preview') {
+                clearInterval(fiveMinutes);
+            }
+        } catch (err) {}
+    </script>
+    -->

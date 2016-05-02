@@ -1,0 +1,48 @@
+/* Transform all of this into SCSS ?*/
+
+/* #orb-square should have an id for sure, so I don't have to use this
+ * syntax to access it lol */
+
+.form-horizontal, #orb-square {
+    float: left;
+}
+
+#orb-square {
+    margin-left: 15%;
+    padding-top: 5%;;
+}
+
+.orb-pic-container {
+    /* transform: scale(0.9); */
+    border-radius: 50%;
+}
+
+.orb-pic-container, .orb-pic {
+    height: 250px;
+    width: 250px;
+}
+
+.orb-pic {
+    /* padding-top: 0; */
+    transform: scale(0.85);
+}
+
+/* ----- Orb list ------- */
+
+.orb-action-card {
+    /* TODO: Lighten #8dc63f */
+    background-color: #e2f2c7;
+    margin-top: 1em;
+    border: 1px solid black;
+    padding: 10px;
+    border-radius: 10px;
+}
+.current-orb-text {
+    display: block;
+    word-break: break-word;
+    margin-bottom: 2%;
+}
+
+.button-preview {
+    margin-left: 2%;
+}

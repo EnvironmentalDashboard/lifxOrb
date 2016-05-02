@@ -19,7 +19,7 @@
     <div id="content">
         <div class="ContainerHeader">
             <h1 class="page-header">
-                Orb Settings Page
+                Create A New Numerical Gauge
                 <small>
                     Oberlin College
                 </small>
@@ -33,9 +33,10 @@
                 <form class="form-horizontal form-graph" method="POST" action="" id="blockForm" style="">
                     <fieldset>
                         <div class="span6">
+
                             <!--Selector input-->
                             <div style="display: block;" class="control-group" id="selectorForm">
-                                <label class="control-label"> Selector String  </label>
+                                <label class="control-label"> Title  </label>
                                 <div class="controls">
                                     {{> selectorForm}}
                                 </div>
@@ -49,19 +50,601 @@
                             </div>
                             <!--Water Meter Dropdown-->
                             <div style="display: block;" class="control-group  " id="waterMetre">
-                                <label class="control-label" for="id_meter"> Water Meter   </label>
+                                <label class="control-label" for="id_meter"> Meter   </label>
                                 <div class="controls">
                                     {{> meters}}
                                 </div>
                             </div>
+                            <div style="display: block;" class="control-group   " id="returnToSaved">
+                                <label class="control-label">  </label>
+                                <div class="controls">
+                                    <h3>The most recent data point for this meter is: <span id="recentPoint"></span> </h3>
+                                </div>
+                            </div>
+
                             <!--Electricity Meter Dropdown-->
-                            <div style="display: block;" class="control-group   " id="elecMetre">
-                                <label class="control-label" for="id_meter"> Electricity Meter   </label>
+                            <!--<div style="display: block;" class="control-group   " id="elecMetre">-->
+                                <!--<label class="control-label" for="id_meter"> Electricity Meter   </label>-->
+                                <!--<div class="controls">-->
+                                    <!--{{> meters}}-->
+                                <!--</div>-->
+                            <!--</div>-->
+                            <!--Save Button-->
+                            <div style="display: block;" class="control-group   " id="nameRow">
+
+                                <label class="control-label" for="id_name">
+
+                      <span class="popover_top pull-right" rel="popover" data-content="Enter a name that will help you identify this Block later." data-original-title="" data-placement="top">
+                        <i class="fa-question-circle"></i>
+                      </span>
+
+                                    Name
+
+                                </label>
+
                                 <div class="controls">
-                                    {{> meters}}
+
+
+                                    <input  id="id_name" maxlength="64" name="name" type="text">
+
+
+
+
+
                                 </div>
                             </div>
-                            <!--Save Button-->
+
+
+
+                            <div style="display: block;" class="control-group   " id="title_typeRow">
+
+                                <label class="control-label" for="id_title_type">
+
+                                    Title
+
+                                </label>
+
+                                <div class="controls">
+
+
+
+                                    <div class="btn-group" data-toggle="buttons-radio">
+
+                                        <label class="btn active ">
+                                            <input  checked="checked" name="title_type" value="1" type="radio">
+
+
+                                            default
+                                        </label>
+
+                                        <label class="btn  ">
+                                            <input  name="title_type" value="2" type="radio">
+
+
+                                            custom
+                                        </label>
+
+                                        <label class="btn  ">
+                                            <input  name="title_type" value="3" type="radio">
+
+
+                                            hidden
+                                        </label>
+
+                                    </div>
+
+
+
+                                </div>
+                            </div>
+
+
+
+                            <div style="display: none;" class="control-group   " id="custom_titleRow">
+
+                                <label class="control-label" for="id_custom_title">
+
+                                    Custom title
+
+                                </label>
+
+                                <div class="controls">
+
+
+                                    <input  id="id_custom_title" maxlength="64" name="custom_title" type="text">
+
+
+
+
+
+                                </div>
+                            </div>
+
+
+
+                            <div style="display: block;" class="control-group   " id="metricRow">
+
+                                <label class="control-label" for="id_metric">
+
+                                    Display as
+
+                                </label>
+
+                                <div class="controls">
+
+
+
+                                    <div class="btn-group" data-toggle="buttons-radio">
+
+                                        <label class="btn active ">
+                                            <input  checked="checked" name="metric" value="1" type="radio">
+
+
+                                            total use
+                                        </label>
+
+                                        <label class="btn  ">
+                                            <input  name="metric" value="2" type="radio">
+
+
+                                            average rate
+                                        </label>
+
+                                        <label class="btn  ">
+                                            <input  name="metric" value="3" type="radio">
+
+
+                                            current rate
+                                        </label>
+
+                                    </div>
+
+
+
+                                </div>
+                            </div>
+
+
+
+                            <div style="display: none;" class="control-group   " id="title_bRow">
+
+                                <label class="control-label" for="id_title_b">
+
+                                    Competition title
+
+                                </label>
+
+                                <div class="controls">
+
+
+
+                                    <div class="btn-group" data-toggle="buttons-radio">
+
+                                        <label class="btn active ">
+                                            <input  checked="checked" name="title_b" value="1" type="radio">
+
+
+                                            visible
+                                        </label>
+
+                                        <label class="btn  ">
+                                            <input  name="title_b" value="0" type="radio">
+
+
+                                            hidden
+                                        </label>
+
+                                    </div>
+
+
+
+                                </div>
+                            </div>
+
+
+
+                            <div style="display: none;" class="control-group   " id="subtitle_bRow">
+
+                                <label class="control-label" for="id_subtitle_b">
+
+                                    Subtitle
+
+                                </label>
+
+                                <div class="controls">
+
+
+
+                                    <div class="btn-group" data-toggle="buttons-radio">
+
+                                        <label class="btn active ">
+                                            <input  checked="checked" name="subtitle_b" value="1" type="radio">
+
+
+                                            visible
+                                        </label>
+
+                                        <label class="btn  ">
+                                            <input  name="subtitle_b" value="0" type="radio">
+
+
+                                            hidden
+                                        </label>
+
+                                    </div>
+
+
+
+                                </div>
+                            </div>
+
+
+
+                            <div style="display: none;" class="control-group   " id="photo_bRow">
+
+                                <label class="control-label" for="id_photo_b">
+
+                                    Photo
+
+                                </label>
+
+                                <div class="controls">
+
+
+
+                                    <div class="btn-group" data-toggle="buttons-radio">
+
+                                        <label class="btn active ">
+                                            <input  checked="checked" name="photo_b" value="1" type="radio">
+
+
+                                            visible
+                                        </label>
+
+                                        <label class="btn  ">
+                                            <input  name="photo_b" value="0" type="radio">
+
+
+                                            hidden
+                                        </label>
+
+                                    </div>
+
+
+
+                                </div>
+                            </div>
+
+
+
+
+                            <div style="display: none;" class="control-group   " id="orb_bRow">
+
+                                <label class="control-label" for="id_orb_b">
+
+                      <span class="popover_top pull-right" rel="popover" data-content="The Orb will encircle the photo. Orb color shows the current level of consumption compared to past performance." data-original-title="" data-placement="top">
+                        <i class="fa-question-circle"></i>
+                      </span>
+
+                                    Orb
+
+                                </label>
+
+                                <div class="controls">
+
+
+
+                                    <div class="btn-group" data-toggle="buttons-radio">
+
+                                        <label class="btn active ">
+                                            <input  checked="checked" name="orb_b" value="1" type="radio">
+
+
+                                            visible
+                                        </label>
+
+                                        <label class="btn  ">
+                                            <input  name="orb_b" value="0" type="radio">
+
+
+                                            hidden
+                                        </label>
+
+                                    </div>
+
+
+
+                                </div>
+                            </div>
+
+
+
+
+
+                            <div style="display: none;" class="control-group   " id="launch_bRow">
+
+                                <label class="control-label" for="id_launch_b">
+
+                      <span class="popover_top pull-right" rel="popover" data-content="Link to Building Dashboard from this Block." data-original-title="" data-placement="top">
+                        <i class="fa-question-circle"></i>
+                      </span>
+
+                                    Launch button
+
+                                </label>
+
+                                <div class="controls">
+
+
+
+                                    <div class="btn-group" data-toggle="buttons-radio">
+
+                                        <label class="btn active ">
+                                            <input  checked="checked" name="launch_b" value="1" type="radio">
+
+
+                                            visible
+                                        </label>
+
+                                        <label class="btn  ">
+                                            <input  name="launch_b" value="0" type="radio">
+
+
+                                            hidden
+                                        </label>
+
+                                    </div>
+
+
+
+                                </div>
+                            </div>
+
+
+
+                            <div style="display: none;" class="control-group   " id="competitors_bRow">
+
+                                <label class="control-label" for="id_competitors_b">
+
+                                    Competitors
+
+                                </label>
+
+                                <div class="controls">
+
+
+
+                                    <div class="btn-group" data-toggle="buttons-radio">
+
+                                        <label class="btn active ">
+                                            <input  checked="checked" name="competitors_b" value="1" type="radio">
+
+
+                                            visible
+                                        </label>
+
+                                        <label class="btn  ">
+                                            <input  name="competitors_b" value="0" type="radio">
+
+
+                                            hidden
+                                        </label>
+
+                                    </div>
+
+
+
+                                </div>
+                            </div>
+
+
+
+                            <div style="display: none;" class="control-group   " id="trophies_bRow">
+
+                                <label class="control-label" for="id_trophies_b">
+
+                                    Trophies
+
+                                </label>
+
+                                <div class="controls">
+
+
+
+                                    <div class="btn-group" data-toggle="buttons-radio">
+
+                                        <label class="btn active ">
+                                            <input  checked="checked" name="trophies_b" value="1" type="radio">
+
+
+                                            visible
+                                        </label>
+
+                                        <label class="btn  ">
+                                            <input  name="trophies_b" value="0" type="radio">
+
+
+                                            hidden
+                                        </label>
+
+                                    </div>
+
+
+
+                                </div>
+                            </div>
+
+
+
+                            <div style="display: none;" class="control-group   " id="odometer_bRow">
+
+                                <label class="control-label" for="id_odometer_b">
+
+                                    Odometer
+
+                                </label>
+
+                                <div class="controls">
+
+
+
+                                    <div class="btn-group" data-toggle="buttons-radio">
+
+                                        <label class="btn active ">
+                                            <input  checked="checked" name="odometer_b" value="1" type="radio">
+
+
+                                            visible
+                                        </label>
+
+                                        <label class="btn  ">
+                                            <input  name="odometer_b" value="0" type="radio">
+
+
+                                            hidden
+                                        </label>
+
+                                    </div>
+
+
+
+                                </div>
+                            </div>
+
+
+
+                            <div style="display: block;" class="control-group   " id="timescaleRow">
+
+                                <label class="control-label" for="id_timescale">
+
+                                    Default timescale
+
+                                </label>
+
+                                <div class="controls">
+
+
+
+                                    <div class="btn-group" data-toggle="buttons-radio">
+
+                                        <label class="btn active ">
+                                            <input  checked="checked" name="timescale" value="1" type="radio">
+
+
+                                            today
+                                        </label>
+
+                                        <label class="btn  ">
+                                            <input  name="timescale" value="2" type="radio">
+
+
+                                            this week
+                                        </label>
+
+                                        <label class="btn  ">
+                                            <input  name="timescale" value="3" type="radio">
+
+
+                                            this month
+                                        </label>
+
+                                        <label class="btn  ">
+                                            <input  name="timescale" value="4" type="radio">
+
+
+                                            this year
+                                        </label>
+
+                                    </div>
+
+
+
+                                </div>
+                            </div>
+
+
+
+                            <div style="display: none;" class="control-group   " id="intensity_bRow">
+
+                                <label class="control-label" for="id_intensity_b">
+
+                                    Intensity
+
+                                </label>
+
+                                <div class="controls">
+
+
+
+                                    <div class="btn-group" data-toggle="buttons-radio">
+
+                                        <label class="btn active ">
+                                            <input  checked="checked" name="intensity_b" value="1" type="radio">
+
+
+                                            visible
+                                        </label>
+
+                                        <label class="btn  ">
+                                            <input  name="intensity_b" value="0" type="radio">
+
+
+                                            hidden
+                                        </label>
+
+                                    </div>
+
+
+
+                                </div>
+                            </div>
+
+
+
+                            <div style="display: block;" class="control-group   " id="unit_label_typeRow">
+
+                                <label class="control-label" for="id_unit_label_type">
+
+                                    Units
+
+                                </label>
+
+                                <div class="controls">
+
+
+
+                                    <div class="btn-group" data-toggle="buttons-radio">
+
+                                        <label class="btn active ">
+                                            <input checked="checked" name="unit_label_type" value="1" type="radio">
+
+
+                                            default
+                                        </label>
+                                        <!--ONly doing defualt units for now.... :)-->
+                                        <!--<label class="btn  ">-->
+                                        <!--<input  name="unit_label_type" value="2" type="radio">-->
+
+
+                                        <!--custom-->
+                                        <!--</label>-->
+
+                                    </div>
+
+
+
+                                </div>
+                            </div>
+                            <div class="span6">
+                                <div style="display: block;" id="errorContainer">
+                                    <p>Select a Building and Meter to render preview</p>
+                                </div>
+                                <div style="display: none;" class="affix-top" id="previewContainer">
+                                    <div class="title">Preview:</div>
+                                    <img id="iframeLoading" style="" src="/spinner_002.gif">
+                                    <iframe style="display: none;" class="span6" id="preview" src="/spinner_002.gif" allowtransparency="true" scrolling="no" frameborder="0" height="240"></iframe>
+                                </div>
+                            </div>
                             <div style="display: block;" class="control-group   " id="save">
                                 <label class="control-label">  </label>
                                 <div class="controls">
@@ -69,13 +652,19 @@
                                 </div>
                             </div>
 
+                            <!--<div style="display: block;" class="control-group   " id="returnToSaved">-->
+                                <!--<label class="control-label">  </label>-->
+                                <!--<div class="controls">-->
+                                    <!--{{> returnToSaved}}-->
+                                <!--</div>-->
+                            <!--</div>-->
+
+
+
+
+
                             <!-- List all made orbs-->
-                            <div style="display: block;" class="control-group" id="orbList">
-                                <label class="control-label"> </label>
-                                <div class="controls">
-                                    {{> listOrbs}}
-                                </div>
-                            </div>
+
 
                         </div>
                     </fieldset>
@@ -84,29 +673,29 @@
         </div>
 
         <!--div for orb preview-->
-        <div name="idle_state">
-            <!--div for water-->
-            <div id="water" class="water-1" style="display: none"><img class="center" src="/waterhd.png" width="320px" height="320px"></div>
-            <!--div for electricity-->
-            <div id=electric class="electric-1"><img class="center" src="/finaliconelec.png" width="320px" height="320px"></div>
-            <script>
-               switchDELAY = 20000, clickTimer = null;
-                idleTimer = startTimer();
-                function startTimer() {
-                    var idleTimer = setInterval(function () {
-                        // toggle the class every switchDELAY seconds
-                        if ( $('#water').css('display') == 'none' ){
-                            $('#electric').toggle('slow');
-                            $('#water').toggle('slow');
-                        } else{
-                            $('#water').toggle('slow');
-                            $('#electric').toggle('slow');
-                        }
-                    }, switchDELAY);
-                    return idleTimer
-                }
-            </script>
-        </div>
+        <!--<div name="idle_state">-->
+            <!--&lt;!&ndash;div for water&ndash;&gt;-->
+            <!--<div id="water" class="water-1" style="display: none"><img class="center" src="/waterhd.png" width="320px" height="320px"></div>-->
+            <!--&lt;!&ndash;div for electricity&ndash;&gt;-->
+            <!--<div id=electric class="electric-1"><img class="center" src="/finaliconelec.png" width="320px" height="320px"></div>-->
+            <!--<script>-->
+               <!--switchDELAY = 20000, clickTimer = null;-->
+                <!--idleTimer = startTimer();-->
+                <!--function startTimer() {-->
+                    <!--var idleTimer = setInterval(function () {-->
+                        <!--// toggle the class every switchDELAY seconds-->
+                        <!--if ( $('#water').css('display') == 'none' ){-->
+                            <!--$('#electric').toggle('slow');-->
+                            <!--$('#water').toggle('slow');-->
+                        <!--} else{-->
+                            <!--$('#water').toggle('slow');-->
+                            <!--$('#electric').toggle('slow');-->
+                        <!--}-->
+                    <!--}, switchDELAY);-->
+                    <!--return idleTimer-->
+                <!--}-->
+            <!--</script>-->
+        <!--</div>-->
 
     </div>
 </template>
@@ -151,10 +740,34 @@
     <button type="button">Remove</button>
 </template>
 
+<template name="returnToSaved">
+    <button type="button">Return</button>
+</template>
+
+<template name="CreateNewBlock">
+    <button type="button">Create A Block</button>
+</template>
+
 <!--Lists orbs currently in database-->
 <template name="listOrbs">
-    <p>Current Orbs.</p>
-    {{#each orbs}}
-       <option> {{selector}}, {{building}}, {{water}}, {{elec}} </option> {{> remove}}
-    {{/each}}
+
+    <h2>Current Gauges:</h2>
+    <hr>
+    <div class="all-orb-cards">
+        <!-- <span id="current&#45;card&#45;placeholder">Your orb preferences will show up here. Try saving some orb settings!</span> -->
+        {{#each orbs}}
+            <div class="orb-action-card">
+            <span class="current-orb-text">
+                <b>Gauge Name:</b> {{selector}} <br>
+                <b>Building:</b> {{building}} <br>
+                <b>Meter:</b> {{meter}} <br>
+                <b>Most Recent Point:</b> {{lastPoint}}
+            </span>
+                {{> remove}}
+            </div>
+        {{/each}}
+        {{> CreateNewBlock}}
+    </div>
+
 </template>
+

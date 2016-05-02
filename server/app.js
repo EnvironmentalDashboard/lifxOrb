@@ -3,11 +3,11 @@
  */
 Meteor.methods({
     insertOrb: function (orbInfo) {
-        water = orbInfo[0];
-        elec = orbInfo[1];
-        selector = orbInfo[2];
-        building = orbInfo[3];
-        Orbs.insert({building: building, selector: selector, water: water, elec: elec})
+        meterSelected = orbInfo[0];
+        selector = orbInfo[1];
+        building = orbInfo[2];
+        mostrecentPoint = orbInfo[3];
+        Orbs.insert({building: building, selector: selector, meter: meterSelected, lastPoint: mostrecentPoint})
     },
     removeOrb: function (orb) {
         Orbs.remove(orb);
